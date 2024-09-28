@@ -22,11 +22,13 @@ body {
 #header {
   width: 100%;
   height: 100vh;
-  background-image: url(images/background.jpg); /* Change or remove as necessary */
+  background-image: url(./assets/Images/logo.png); 
   background-size: contain;
-  background-position: right 50px bottom 190px;
+  background-position: right 120px bottom 190px;
   background-repeat: no-repeat;
-  background-size: auto 40%;
+  background-size: auto 50%;
+ 
+  
 }
 
 .container {
@@ -36,17 +38,14 @@ body {
 nav {
   display: flex;
   align-items: center;
-  justify-content: flex-end; /* Moves items to the right */
+  justify-content: flex-end;
   flex-wrap: wrap;
-}
-.logo {
-  width: 200px;
 }
 
 nav ul li {
   display: inline-block;
   list-style: none;
-  margin: 10px 40px; /* Increased margin for more spacing */
+  margin: 10px 20px; /* Keep increased margin for spacing */
 }
 
 nav ul li a {
@@ -60,7 +59,7 @@ nav ul li a::after {
   content: '';
   width: 0;
   height: 3px;
-  background: #4179a7; /* Neutral color for underline */
+  background: #197c28; /* Neutral color for underline */
   position: absolute;
   left: 0;
   bottom: -6px;
@@ -71,9 +70,11 @@ nav ul li a:hover::after {
   width: 100%;
 }
 
+
 .header-text {
   margin-top: 20%;
-  font-size: 30px;
+  text-align: 30px;
+
 }
 
 .header-text h1 {
@@ -82,8 +83,14 @@ nav ul li a:hover::after {
 }
 
 .header-text h1 span {
-  color: #4179a7; /* Neutral color */
+  color: #197c28; /* Neutral color */
 }
+.header-text p {
+  margin: 0;
+  font-size: 30px; /* Controls the size of the subheading */
+  color: #000; /* Controls the color of the subheading */
+}
+
 
 /* About Section */
 #about {
@@ -93,7 +100,7 @@ nav ul li a:hover::after {
 
 .row {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start; /* Aligns content to the left */
   flex-wrap: wrap;
 }
 
@@ -107,14 +114,20 @@ nav ul li a:hover::after {
 }
 
 .about-col-2 {
-  flex-basis: 60%;
+  flex-basis: 100%;
+  text-align: left; 
+  margin-left: 0%; 
+  padding-left: 0; 
+  margin-top: 20px;
 }
 
 .sub-title {
   font-size: 60px;
   font-weight: 600;
-  color: #4179a7; /* Neutral color */
+  color:  #197c28; /* Neutral color */
+  margin-bottom: 30px;
 }
+
 
 /* Map Section */
 #map {
@@ -140,9 +153,11 @@ nav ul li a:hover::after {
 }
 
 .contact-left {
-  flex-basis: 35%;
-  margin-left: 150px; 
+  flex-basis: 100%; /* Ensures the text container takes up full width */
+  margin-left: 0; /* Removes the left margin */
   margin-bottom: 40px;
+  padding-left: 0; /* Ensures no padding on the left */
+  text-align: left; /* Aligns text to the left */
 }
 
 .contact-left p {
@@ -155,7 +170,7 @@ nav ul li a:hover::after {
   transition: color 0.5s;
 }
 
-contact-left p a:hover {
+.contact-left p a:hover {
   color: rgb(102, 102, 102); /* Neutral color on hover */
 }
 
@@ -181,6 +196,7 @@ contact-left p a:hover {
   color: #888; /* Neutral color */
   transform: translateY(-5px);
 }
+
 
 /* CSS for mobile */
 @media only screen and (max-width: 600px) {
@@ -222,4 +238,8 @@ contact-left p a:hover {
   .about-col-1 {
       margin-bottom: 40px;
   }
+}
+
+.font-size {
+  font-size: 25px;
 }

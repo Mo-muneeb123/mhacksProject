@@ -4,6 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MoodMap</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/5b6f105626.js" crossorigin="anonymous"></script>
+    <script>
+        var sidemenu = document.getElementById("sidemenu");
+    
+        function openmenu(){
+            sidemenu.style.right = "0";
+        }
+        function closemenu(){
+            sidemenu.style.right = "-200px";
+        }
+    </script>
   </head>
   <body>
     <div id="root"></div>
@@ -17,244 +29,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Portfolio Website</title>
+    <title>Community Sentiment Heatmap</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/5b6f105626.js" crossorigin="anonymous"></script>
+    
 </head>
-<body>
-
-
-
-
-<div id="about">
-    <div class="container">
-        <div class="row">
-            <div class="about-col-1">
-                <img src="images/newme.JPG" alt="description" class="resized-image">
-            </div>
-
-            <div class="about-col-2">
-               <h1 class="sub-title">About Me</h1> 
-               <p>Hello, my name is Mohammed Muneeb! I am a junior at Wayne State University pursuing a bachelor's in computer science. This summer, I interned at Henkel as a Software Implementation Intern, working on analyzing and editing XML and Java files, creating Software solutions, editing CAD files in CreoView, and documenting Henkel Windchill documents. Now, I am looking for my next internship to deepen my expertise and develop new skills.
-
-                Along with my rigorous coursework, my extracurricular activities include personal projects like a Wordle clone and creating this website, as well as teaching various coding languages to younger students. I am enthusiastic about joining a dynamic team where I can engage in innovative projects, gain hands-on experience, and learn from industry experts. My objective is to actively contribute to the success and innovation of the company while advancing in my career.
-                
-                 <br><br> In my free time I like playing soccer, watching the Detroit Lions (I am a huge fan), working out, playing video games and working on self coding projects. <br> <br>
-
-                If you would like to connect with me about potential opportunities or to talk in general feel free to do so using my linkedin or my email found in the contact portion of this website. Thank you! </p>
-                
-
-               <div class="tab-titles">
-                <p class="tab-links active-link" onclick="opentab('education')">Education</p>
-                <p class="tab-links" onclick="opentab('skills')" >Skills</p>
-                <p class="tab-links" onclick="opentab('experience')" >Experience</p>
-                <p class="tab-links" onclick="opentab('resume')" >Resume</p>
-
-               </div>
-               <div class="tab-contents active-tab" id="education">
-                <ul>
-                    <li><span>Wayne State University - Bachelor of Computer Science </span><br>GPA (3.90/4) <br> Expected Graduation May 2026</li>
-                    <li><span>Courses</span><br> Data Structures and Algorithms, Object-Oriented Programming, Computer Architecture, Fundamental Structures, Calculus III, Linear Algebra</li>
-                    <li><span>Extracurriculars</span><br>Career.edYOU Academy, WayneHacks, Society of Computer Developers, Google Developer Club, Tech Cadets, Local Volunteer Clubs, Rec Soccer</li>
-                    <li><span>Awards <br> </span>Ford Motor Company Engineering Scholarship, Arthur R. Carr Memorial Scholarship, Detroit Leadership Award</li>
-                </ul>
-               </div>
-               <div class="tab-contents " id="skills">
-                <ul>
-                    <li><span>Programming Languages</span><br>Java, Python, C++, Javascript, HTML5, CSS, Swift, SQL, C</li>
-                    <li><span>Frameworks/Technogloies</span><br>NodeJS, Django, Ruby, mySQL, TypeScript, ReactJS, MongoDB, API, XML</li>
-                    <li><span>Tools</span><br>Git, Github, VSCode, Arduino, CreoView, Windchill, Visual Studio</li>
-                    <li><span>Languages</span><br> English(Fluent), Hindi(Fluent), Urdu(Fluent), Spanish(Intermediate), Arabic(Intermediate)</li>
-
-                </ul>
-               </div>
-               <div class="tab-contents" id="experience">
-                <ul>
-                    <li><span>Software Implementation Intern | Henkel </span><br>
-                        <ul>
-                            <li>● Developed comprehensive guides for CreoView, reducing training time by 30% </li>
-                            <li>● Documented and analyzed 200+ attributes in Henkel's Windchill documents, improving workflow efficiency by 20%</li>
-                            <li>● Optimized XML and Java files,  increasing software reliability and performance by 12%</li>
-                            <li>● Analyzed and edited CAD part files, streamlining design processes and reducing design time by 8%</li>
-                            <li>● Built software solutions improving project delivery by 25% and optimizing engineering workflows</li>
-                        </ul>
-                    </li>
-                    <li><span>Coding Instructor | iCode</span><br>
-                        <ul>
-                            <li>● Mastered and instructed Python, JavaScript, and C++, advancing over 100+ students coding proficiency</li>
-                            <li>● Designed and led a comprehensive computer science curriculum, enhancing the coding skills of 100+ students</li>
-                            <li>● Directed students through web development projects using HTML, CSS, and JavaScript for practical application</li>
-                            <li>● Facilitated workshops on software version control using Git, emphasizing collaborative coding practices.</li>
-                        </ul>
-                    </li>
-                    <li><span>Computer Science Instructor | Wayne State University</span><br>
-                        <ul>
-                            <li>● Lead instructor for University Summer Engineering Camp for 200+ students</li>
-                            <li>● Developed a Python-focused curriculum for 97 high school students</li>
-                            <li>● Enhanced Python programming proficiency among students, elevating average assessment scores from 55% to over 85% </li>
-                            <li>● Guided 50 students in building drone control programs using Python, with 100% completing a functional program</li>
-                            <li>● Oversaw a team of 12 students in the drone programming competition, achieving 1st place out of 8 teams</li>
-                        </ul>
-                    
-                    </li>
-                </ul>
-               </div>
-               <div class="tab-contents" id="resume">
-                <a href="Images/resume.pdf" download="Mohammed_Muneeb.pdf" target="_blank" class="resume-download">
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Download Resume
-                </a>
-            </div>
-            
-            </div>
-               
-            </div>
-
-        </div>
-    </div>
-</div>
-
-
-
-<div id="interests">
-    <div class="container">
-        <h1 class="sub-title">My Interests</h1>
-        <div class="interests-list">
-            <div>
-                <i class="fa-solid fa-code"></i>
-                <h2>Software Engineering / <br>Develoment</h2>
-                <p>
-                </p>
-            </div>
-            <div>
-                <i class="fa-solid fa-code"></i>
-                <h2>Artifical Intelligence</h2>
-                <p>
-                </p>
-            </div>
-            <div>
-                <i class="fa-solid fa-code"></i>
-                <h2>Machine Learning</h2>
-                <p>
-                </p>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-
-<div id="portfolio">
-    <div class="container">
-        <h1 class="sub-title">My Projects</h1>
-        <div class="work-list">
-            <div class="work">
-                <img src="images/wordle.png" class="portfolio-image"> 
-                <div class="layer">
-                    <h3>Wordle Clone</h3>
-                    <p> ● Developed a Wordle clone employing JavaScript, HTML/CSS, and Web APIs, enhancing user engagement by integrating intuitive gameplay mechanics <br>
-                        ● Implemented advanced DOM manipulation for real-time UI updates, resulting in a 90% positive user experience rating from over 50 users during testing <br>
-                        ● Implemented the game's core functionality using JavaScript, including word generation, user input handling, and result evaluation</p>
-                    <a href="https://mohammedwordleclone.netlify.app/" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                    <a href="https://github.com/Mo-muneeb123/Wordle-Clone" target="_blank"><i class="fa-brands fa-github"></i></a>
-                </div>          
-            </div>
-            <div class="work">
-                <img src="images/pricetracker.png" class="portfolio-image"> 
-                <div class="layer">
-                    <h3>Product Price Tracker</h3>
-                    <p>● Built a Python-based price tracking tool, automating real-time price monitoring and email alerts, effectively used
-                        by 10+ users for enhanced e-commerce experiences <br>
-                        ● Implemented BeautifulSoup for accurate web scraping, ensuring reliable tracking of online product prices <br>
-                        ● Engineered an automated email notification system, optimizing user shopping efficiency by alerting on price drops</p>
-                    <a href="https://github.com/Mo-muneeb123/Price-Tracker" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                </div>             
-            </div>
-            <div class="work">
-                <img src="images/math2.jpeg" class="portfolio-image"> 
-                <div class="layer">
-                    <h3>Math Mania</h3>
-                    <p>● Created an adaptive Python-based math quiz platform, generating over 31,000 unique questions for comprehensive skill development. <br>
-                        ● Applied object-oriented programming for a scalable and maintainable platform, streamlining the user experience.</p>
-                    <a href="https://github.com/Mo-muneeb123/Math-Mania" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                </div>             
-            </div>
-            <div class="work">
-                <img src="images/solar.jpeg" class="portfolio-image"> 
-                <div class="layer">
-                    <h3>Star Quest</h3>
-                    <p>● Programmed an educational C++ game on outer space, focusing on interactivity and incorporating a database of 25+ space facts for enhanced learning. <br>
-                        ● Implemented a randomized quiz system using conditional logic, promoting user engagement and knowledge retention. </p>
-                    <a href="https://github.com/Mo-muneeb123/Star-Quest" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                </div>             
-            </div>
-        </div>
-    </div>
-
-
-</div>
-
-
-<div id="contact">
-    <div class="container"></div> 
-        <div class="row"></div>
-            <div class="contact-left">
-                <h1 class="sub-title">Contact Me</h1>
-                <p><i class="fa-solid fa-paper-plane"></i><a href="mailto:mmriyan123@gmail.com">mmriyan123@gmail.com</a></p>
-                <p><i class="fa-brands fa-linkedin-in"></i><a href="https://linkedin.com/in/mo-muneeb1" target="_blank">LinkedIn</a></p>
-                <p><i class="fa-brands fa-square-github"></i><a href="https://github.com/Mo-muneeb123" target="_blank"> Github</a></p>
-                <div class="social-icons">
-                    <a href="https://linkedin.com/in/mo-muneeb1" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="mailto:mmriyan123@gmail.com"><i class="fa-solid fa-envelope"></i></a>                  
-                    <a href="https://github.com/Mo-muneeb123" target="_blank"><i class="fa-brands fa-github"></i></a>
-                <div class="resume">
-                    <a href="Images/resume.pdf" download="Mohammed_Muneeb.pdf" target="_blank" class="resume-download">
-                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Download Resume
-                    </a>
-
-                </div>
-
-
-                </div>
-
-            </div>
-</div>
 
 
 
 
 
- 
-<script>
-
-    var tablinks = document.getElementsByClassName("tab-links");
-    var tabcontents = document.getElementsByClassName("tab-contents");
- 
-    function opentab(tabname){
-        for(tablink of tablinks){
-            tablink.classList.remove("active-link");
-        }
-        for(tabcontent of tabcontents){
-            tabcontent.classList.remove("active-tab");
-        } 
-        event.currentTarget.classList.add("active-link");
-        document.getElementById(tabname).classList.add("active-tab");
-    }
 
 
-</script>
 
-<script>
-    var sidemenu = document.getElementById("sidemenu");
 
-    function openmenu(){
-        sidemenu.style.right = "0";
-    }
-    function closemenu(){
-        sidemenu.style.right = "-200px";
-    }
-</script>
 
 </body>
 </html> -->
