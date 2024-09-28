@@ -11,14 +11,13 @@ const Home = () => {
                 <li><a href="#about">About</a></li>
                 <li><a href="#map">Map</a></li>
                 <li><a href="#contact">Contact</a></li>
-
-                <i className="fa-solid fa-xmark" onClick="closemenu()"></i>
+                
             </ul>
-            <i className="fa-solid fa-bars" onClick="openmenu()"></i>
+           
         </nav>
         <div className="header-text">
-            <p>Junior CS Student at Wayne State University</p>
-            <h1>Hi! I'm <span>Mohammed</span> <br>Muneeb</br> </h1>
+            <p>Welcome to Mood Map!</p>
+            <h1>Mood Map Description</h1>
         </div>
     </div>
 
