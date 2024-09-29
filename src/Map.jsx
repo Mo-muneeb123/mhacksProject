@@ -1,39 +1,56 @@
-import React from 'react';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import React, { useState } from 'react';
+import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import { useState, useEffect } from 'react';
 
+
+const MapUpdater = ({ coordinates, zoom }) => {
+    const map = useMap(); 
+    React.useEffect(() => {
+      if (coordinates) {
+        console.log("Updating map view to:", coordinates, "with zoom level:", zoom);
+        map.setView(coordinates, zoom); 
+      }
+    }, [coordinates, zoom, map]); 
+  
+    return null;
+  };
+  
 
 const Map = () => {
     const [searchTerm, setSearchTerm] = useState('');
+    const [coordinates, setCoordinates] = useState([37.8, -96]); 
+    const [zoom, setZoom] = useState(4);  
     const [savedSearch, setSavedSearch] = useState('');
 
     const styles = {
       container: {
           textAlign: 'center',
           padding: '20px',
+          alignItems: 'center',
       },
+      form: {
+        display: 'flex',
+        justifyContent: 'center',
+        marginBottom: '20px',
+    },
       input: {
-          padding: '10px',
-          width: '250px',
+          padding: '15px 20px',
+          width: '300px',
+          fontSize: '20px',
           border: '2px solid #ccc',
           borderRadius: '5px',
           marginRight: '10px',
-          display: 'flex', 
-          justifyContent: "center",
-          alignItems: 'center'
-
       },
       button: {
-          padding: '10px 15px',
+          padding: '15px 20px',
+          fontSize: '20px',
           borderRadius: '5px',
-          backgroundColor: '#4CAF50',
+          backgroundColor: '#197c28',
           color: 'white',
           border: 'none',
           cursor: 'pointer',
-          display: 'flex',
-          justifyContent: "center",
-          alignItems: 'center'
+          height: '55px',
+          display: 'inline-block',
 
       },
       savedSearch: {
@@ -45,65 +62,82 @@ const Map = () => {
     const handleInputChange = (e) => {
         setSearchTerm(e.target.value);
     };
-
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        setSavedSearch(searchTerm); 
-        setSearchTerm(''); 
-    };
-
-    useEffect(() => {
-        if (searchTerm !== '') {
-            console.log(`Current search term: ${searchTerm}`);
-           
+        if (!searchTerm) return;
+      
+        console.log('Search Term:', searchTerm); 
+        setSavedSearch(searchTerm);
+      
+        try {
+          console.log('Sending API request to OpenCage...'); 
+          const response = await fetch(`https://api.opencagedata.com/geocode/v1/json?q=${searchTerm}&key=8a025f79ec2244b692b8a3e3e333fa94`);
+      
+          console.log('API Status Code:', response.status);
+          if (!response.ok) {
+            throw new Error(`API request failed with status ${response.status}`);
+          }
+      
+          const data = await response.json();
+          console.log('API Response:', data); 
+      
+          if (data.results.length > 0) {
+            const { lat, lng } = data.results[0].geometry;
+            console.log('Coordinates:', lat, lng); 
+            setCoordinates([lat, lng]);
+            setZoom(10); 
+          } else {
+            console.log('Location not found.');
+            alert('Location not found.');
+          }
+        } catch (error) {
+          console.error('Error fetching geocoding data:', error);
+          alert('Failed to search for location.');
         }
-    }, [searchTerm]);
+      
+        setSearchTerm(''); 
+      };
 
     return (
-      <>
-      <div id ='map'>
-      <div className ='container'>
-        <h1 className ='sub-title'>Live Sentiment Map</h1>
-        <div className="map-cointainer"></div>
-        <div>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    placeholder="Enter a Valid State/City Name in the USA"
-                    value={searchTerm}
-                    onChange={handleInputChange}
-                />
-                <button type="submit">Search</button>
-            </form>
-            {savedSearch && (
-                <div>
-                    <h3>Saved Search:</h3>
-                    <p>{savedSearch}</p>
-                </div>
-            )}
-        </div>
-
-      </div>
-      </div>
-
-     
-      
-
-        <MapContainer  center={[37.8, -96]} zoom={4} scrollWheelZoom={true} style={{ height: '80vh', width: '90%',
-            display:'flex', justifyContent:'center', alignItems:'center', margin: '0 auto' }} >
-            <TileLayer
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        <div style={{ textAlign: 'center' }}>
+          <form onSubmit={handleSubmit} style={{ marginBottom: '20px' }}>
+            <input
+              type="text"
+              placeholder="Enter State/City in the USA"
+              value={searchTerm}
+              onChange={handleInputChange}
+              style={styles.input}
             />
-            <Marker position={[37.8, -96]}>
-                <Popup>
-                    A pretty CSS3 popup. <br /> Easily customizable.
-                </Popup>
+            <button type="submit" style={styles.button}>Search</button>
+          </form>
+    
+          {savedSearch && (
+            <div>
+              <h3>Saved Search:</h3>
+              <p>{savedSearch}</p>
+            </div>
+          )}
+    
+          <MapContainer
+            center={coordinates}
+            zoom={zoom}
+            scrollWheelZoom={true}
+            style={{ height: '80vh', width: '90%', margin: '0 auto' }}
+          >
+            <TileLayer
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            />
+            <Marker position={coordinates}>
+              <Popup>{savedSearch}</Popup>
             </Marker>
-        </MapContainer>
-      </>
-      
-    );
+    
+            <MapUpdater coordinates={coordinates} zoom={zoom} />
+          </MapContainer>
+        </div>
+      );
 };
 
 export default Map;
+
+
