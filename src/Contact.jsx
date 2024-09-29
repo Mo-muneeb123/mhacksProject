@@ -15,6 +15,9 @@ const Contact = () => {
                     <i className="fa-solid fa-phone"></i>
                     <a href="tel:123-456-7890" target="_blank" rel="noopener noreferrer">123-456-7890</a>
                 </p>
+                <p>
+                Copyright @ 2024 MoodMap Inc. All rights reserved.
+                </p>
             </div>
         </div>
     </div>
