@@ -2,6 +2,7 @@ import React from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 
+
 const Map = () => {
     return (
       <>
@@ -12,7 +13,8 @@ const Map = () => {
       </div>
       </div>
 
-        <MapContainer center={[37.8, -96]} zoom={4} scrollWheelZoom={true} style={{ height: '100vh', width: '100%', paddingLeft: '30px' }}>
+        <MapContainer  center={[37.8, -96]} zoom={4} scrollWheelZoom={true} style={{ height: '80vh', width: '90%',
+            display:'flex', justifyContent:'center', alignItems:'center', margin: '0 auto' }} >
             <TileLayer
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

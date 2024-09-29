@@ -215,6 +215,10 @@ nav .fa-solid{
   display: none;
 }
 
+.component:hover {
+  transform: none; /* No scaling applied */
+}
+
 
 @media only screen and (max-width: 600px) {
   #header {
