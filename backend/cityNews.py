@@ -1,8 +1,8 @@
-# import requests
+import requests
 
-# import folium
-# from folium.plugins import HeatMap
-# import random
+import folium
+from folium.plugins import HeatMap
+import random
 
 import json
 
@@ -22,6 +22,11 @@ neuCount = len(jsonObjArray['neutral'])
 negCount = len(jsonObjArray['negative'])
 print(posCount,negCount,neuCount)
 
+density = ((posCount + negCount + neuCount) / 3) * 100
+print(density)
+
+
+
 # Second API
 
 url = 'https://magicloops.dev/api/loop/run/6d8f55bf-00d4-429a-8e81-3452b99d22c5'
@@ -34,6 +39,8 @@ print(f"OUTPUT: {responseJson['loopOutput']}")
 
 jsonObj = responseJson['loopOutput']
 
+long = jsonObj["longitude"]
+lat = jsonObj["latitude"]
 
 print(jsonObj["longitude"], jsonObj["latitude"])
 
@@ -42,7 +49,7 @@ print(jsonObj["longitude"], jsonObj["latitude"])
 
 # Sample data for the heatmap (latitude, longitude, and headline density)
 heat_map_data = [
-    [37.7749, -122.4194, 10]
+    [lat, long, density]
 ]
 
 # Create a base map
