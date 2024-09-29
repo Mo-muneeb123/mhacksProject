@@ -15,6 +15,12 @@ response = requests.get(url, json=payload)
 responseJson = response.json()
 print(f"STATUS: {responseJson['status']}")
 print(f"OUTPUT: {responseJson['loopOutput']}")
+jsonObjArray= responseJson['loopOutput']
+
+posCount = len(jsonObjArray['positive'])
+neuCount = len(jsonObjArray['neutral'])
+negCount = len(jsonObjArray['negative'])
+print(posCount,negCount,neuCount)
 
 # Second API
 
