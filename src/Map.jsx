@@ -70,13 +70,14 @@ const Map = () => {
         setSavedSearch(searchTerm);
       
         try {
-          console.log('Sending API request to OpenCage...'); 
-          const response = await fetch(`https://api.opencagedata.com/geocode/v1/json?q=${searchTerm}&key=8a025f79ec2244b692b8a3e3e333fa94`);
-      
-          console.log('API Status Code:', response.status);
-          if (!response.ok) {
-            throw new Error(`API request failed with status ${response.status}`);
-          }
+          // Send savedSearch as userInput to the backend API
+          const response = await fetch('http://127.0.0.1:5000/api/generate_html', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ savedSearch }),
+          });
       
           const data = await response.json();
           console.log('API Response:', data); 
