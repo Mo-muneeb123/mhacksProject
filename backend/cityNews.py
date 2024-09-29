@@ -1,8 +1,8 @@
-# import requests
+import requests
 
-# import folium
-# from folium.plugins import HeatMap
-# import random
+import folium
+from folium.plugins import HeatMap
+import random
 
 import json
 

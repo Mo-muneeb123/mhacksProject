@@ -65,10 +65,7 @@ const Map = () => {
       <div className ='container'>
         <h1 className ='sub-title'>Live Sentiment Map</h1>
         <div className="map-cointainer"></div>
-      </div>
-      </div>
-
-      <div>
+        <div>
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
@@ -86,6 +83,10 @@ const Map = () => {
             )}
         </div>
 
+      </div>
+      </div>
+
+     
       
 
         <MapContainer  center={[37.8, -96]} zoom={4} scrollWheelZoom={true} style={{ height: '80vh', width: '90%',
